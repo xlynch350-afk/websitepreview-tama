@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/index.css" />
+  </head>
+  <body>
+    <script
+      src="https://kit.fontawesome.com/dea870b450.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <div class="navbar">
+      <nav>
+        <button class="menu-toggle" onclick="toggleMenu()">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+        <ul id="nav-menu">
+          <li><a href="https://www.instagram.com/ta_ma5353/"><i class="fa-brands fa-instagram"></i> Instagram</a></li>
+          <li><a href="https://www.tiktok.com/@xlynch6"><i class="fa-brands fa-tiktok"></i> TikTok</a></li>
+          <li><a href="https://www.instagram.com/sepuluh.erpeell_/"><i class="fa-solid fa-sign-out-alt"></i>my class</a></li>
+        </ul>
+      </nav>
+    </div>
+
+
+    <div class="header">
+      <h1>website preview</h1>
+      <p>halo selamat datang di website buatan tama</p>
+      <p>website ini dibuat dengan menggunakan HTML, CSS, dan JavaScript</p>
+    </div>
+    <div class="content">
+      <h1>sedikit contoh dari apa yang bisa kamu tambahkan di website anda</h1>
+      <div class="gambar-konten">
+          <button id="audio-toggle" onclick="toggleAudio()">
+            klik untuk memutar musik
+          </button>
+        <div class="gambarp">
+          <img src="../source/gambar/Cars-removebg-preview.png" />
+        </div>
+        <div class="gambarm">
+          <img src="../source/gambar/Cycle-removebg-preview.png" />
+        </div>
+
+      </div>
+
+      <!-- Elemen audio -->
+      <audio
+        id="background-audio1"
+        src="../source/sound/Crystalwaters.mp3"
+        loop
+      ></audio>
+      <audio
+        id="background-audio2"
+        src="../source/sound/TV Girl x Dangerously Yours - Cigarettes out the Window lyrics.mp3"
+        loop
+      ></audio>
+      <audio
+        id="background-audio3"
+        src="../source/sound/Money.mp3"
+        loop
+      ></audio>
+
+      <!-- Elemen untuk menampilkan lagu yang sedang dimainkan -->
+      <div id="now-playing">-</div>
+
+      <script>
+        //menambahkan variabel untuk audio dan elemen tampilan
+        var audio1 = document.getElementById("background-audio1");
+        var audio2 = document.getElementById("background-audio2");
+        var audio3 = document.getElementById("background-audio3");
+        var nowplaying = document.getElementById("now-playing");
+        var musicstate = 0; // 0 = no music, 1 = music 1, 2 = music 2
+
+        //pengkondisian untuk volume lagu agar tidak terlalu keras
+        audio1.volume = 1;
+        audio2.volume = 1;
+        audio3.volume = 1;
+
+        //fungsi untuk menghentikan semua audio
+        function stopAllAudio() {
+          audio1.pause();
+          audio1.currentTime = 0;
+          audio2.pause();
+          audio2.currentTime = 0;
+          audio3.pause();
+          audio3.currentTime = 0;
+        }
+
+        //fungsi untuk toggle audio
+        function toggleAudio() {
+          if (musicstate === 0) {
+            //memutar lagu pertama dengan loop
+            stopAllAudio();
+            audio1.play();
+            musicstate = 1;
+            document.getElementById("audio-toggle").textContent =
+              "Putar Musik Berikut";
+            nowplaying.textContent = "cystalwaters";
+          } else if (musicstate === 1) {
+            //putar lagu kedua dengan loop
+            stopAllAudio();
+            audio2.play();
+            musicstate = 2;
+            document.getElementById("audio-toggle").textContent =
+              "putar musik berikutnya";
+            nowplaying.textContent =
+              "TV Girl x Dangerously Yours - Cigarettes out the Window";
+          } else if (musicstate === 2) {
+            //putar lagu ketiga dengan loop
+            stopAllAudio();
+            audio3.play();
+            musicstate = 3;
+            document.getElementById("audio-toggle").textContent = "stop musik";
+            nowplaying.textContent = "Money";
+          } else {
+            stopAllAudio();
+            musicstate = 0;
+            document.getElementById("audio-toggle").textContent = "putar musik";
+
+            nowplaying.textContent = "tidak ada lagu yang di putar";
+          }
+        }
+
+        //fungsi untuk toggle menu navbar
+        function toggleMenu() {
+          const menu = document.getElementById("nav-menu");
+          menu.classList.toggle("menu-open");
+        }
+
+      </script>
+    </div>
+  </body>
+</html>
