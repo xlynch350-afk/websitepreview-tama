@@ -35,7 +35,7 @@ html {
   text-align: left;
   color: white;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.75);
-  background-image: url("../source/gambar/Saturn.jfif");
+  background-image: url("source/gambar/Saturn.jfif");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -47,7 +47,7 @@ html {
   flex-direction: column;
   gap: 20px;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.75);
-  background-image: url("../source/gambar/download (1).jfif");
+  background-image: url("source/gambar/download (1).jfif");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
